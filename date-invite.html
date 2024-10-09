@@ -1,31 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 24.8.1.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
-		pre { background: transparent }
-		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
-		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
-		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Date Invitation&lt;/title&gt;
-    &lt;style&gt;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Invitation</title>
+    <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             background-color: #f0f8ff;
             font-family: Arial, sans-serif;
@@ -36,19 +20,43 @@
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
+            margin-bottom: 20px;
         }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&quot;invitation&quot; id=&quot;invitation&quot;&gt;
-        &lt;h1&gt;You're Invited!&lt;/h1&gt;
-        &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;
-    &lt;/div&gt;
+        .response {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation" id="invitation">
+        <h1>You're Invited!</h1>
+        <p id="message"></p>
+    </div>
+    
+    <div class="response">
+        <h2>Will you go out with me?</h2>
+        <button onclick="respond('yes')">Yes</button>
+        <button onclick="respond('no')">No</button>
+    </div>
+    
+    <div id="reply" class="response"></div>
 
-    &lt;script&gt;
+    <script>
         // Function to create the date invitation message
         function createDateInvitation(name) {
-            return `Hey Eshel! 😊 I was wondering if you'd like to go out with me sometime. Maybe grab a coffee or dinner? Let me know what you think! ❤️`;
+            return `Hey ${name}! 😊 I was wondering if you'd like to go out with me sometime. Maybe grab a coffee or dinner? Let me know what you think! ❤️`;
         }
 
         // Get the name from the URL parameters
@@ -57,8 +65,18 @@
 
         // Display the invitation message
         document.getElementById('message').innerText = createDateInvitation(name);
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
+
+        // Function to handle the response
+        function respond(answer) {
+            let replyMessage;
+            if (answer === 'yes') {
+                replyMessage = "Yay! 🎉 I'm so excited! Let's plan the details!";
+            } else {
+                replyMessage = "No worries! 😊 Maybe another time.";
+            }
+            document.getElementById('reply').innerText = replyMessage;
+        }
+    </script>
 </body>
 </html>
+
