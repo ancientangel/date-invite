@@ -31,7 +31,7 @@
     <script>
         // Function to create the date invitation message
         function createDateInvitation(name) {
-            return `Hey ${name}! 😊 I was wondering if you'd like to go out with me sometime. Maybe grab a coffee or dinner? Let me know what you think! ❤️`;
+            return `Hey Eshel! 😊 I was wondering if you'd like to go out with me sometime. Maybe grab a coffee or dinner? Let me know what you think! ❤️`;
         }
 
         // Get the name from the URL parameters
