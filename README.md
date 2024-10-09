@@ -70,6 +70,29 @@
 
         // Function to set the user's name
         function setName() {
-            const nameInput = docume
+            const nameInput = document.getElementById('nameInput').value;
+            userName = nameInput || 'there'; // Use default if input is empty
+            document.getElementById('message').innerText = createDateInvitation(userName);
+        }
+
+        // Function to create the date invitation message
+        function createDateInvitation(name) {
+            return `Hey ${name}! 😊 I was wondering if you'd like to go out with me sometime. Maybe grab a coffee or dinner? Let me know what you think! ❤️`;
+        }
+
+        // Function to handle the response
+        function respond(answer) {
+            let replyMessage;
+            if (answer === 'yes') {
+                replyMessage = `Yay! 🎉 I'm so excited, ${userName}! Let's plan the details!`;
+            } else {
+                replyMessage = `No worries, ${userName}! 😊 Maybe another time.`;
+            }
+            document.getElementById('reply').innerText = replyMessage;
+        }
+    </script>
+</body>
+</html>
+
 
 
