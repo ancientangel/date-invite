@@ -37,7 +37,7 @@
         button:hover {
             background-color: #45a049;
         }
-        input[type="text"] {
+        input[type="text"], input[type="email"] {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -56,13 +56,18 @@
         <input type="text" id="nameInput" placeholder="Enter your name" />
         <button onclick="setName()">Submit</button>
     </div>
-    
+
+    <form id="responseForm" action="https://formspree.io/f/xvgoplev" method="POST" style="display:none;">
+        <input type="hidden" name="name" id="formName" />
+        <input type="hidden" name="response" id="formResponse" />
+    </form>
+
     <div class="response">
         <h2>Will you go out with me?</h2>
         <button onclick="respond('yes')">Yes</button>
         <button onclick="respond('no')">No</button>
     </div>
-    
+
     <div id="reply" class="response"></div>
 
     <script>
@@ -89,10 +94,16 @@
                 replyMessage = `No worries, ${userName}! 😊 Maybe another time.`;
             }
             document.getElementById('reply').innerText = replyMessage;
+
+            // Send response to Formspree
+            document.getElementById('formName').value = userName;
+            document.getElementById('formResponse').value = answer;
+            document.getElementById('responseForm').submit();
         }
     </script>
 </body>
 </html>
+
 
 
 
