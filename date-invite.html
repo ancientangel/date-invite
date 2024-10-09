@@ -37,12 +37,24 @@
         button:hover {
             background-color: #45a049;
         }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="invitation" id="invitation">
         <h1>You're Invited!</h1>
         <p id="message"></p>
+    </div>
+
+    <div class="response">
+        <h2>What's your name?</h2>
+        <input type="text" id="nameInput" placeholder="Enter your name" />
+        <button onclick="setName()">Submit</button>
     </div>
     
     <div class="response">
@@ -54,29 +66,10 @@
     <div id="reply" class="response"></div>
 
     <script>
-        // Function to create the date invitation message
-        function createDateInvitation(name) {
-            return `Hey ${name}! 😊 I was wondering if you'd like to go out with me sometime. Maybe grab a coffee or dinner? Let me know what you think! ❤️`;
-        }
+        let userName = 'there'; // Default name
 
-        // Get the name from the URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name') || 'there'; // Default to 'there' if no name is provided
+        // Function to set the user's name
+        function setName() {
+            const nameInput = docume
 
-        // Display the invitation message
-        document.getElementById('message').innerText = createDateInvitation(name);
-
-        // Function to handle the response
-        function respond(answer) {
-            let replyMessage;
-            if (answer === 'yes') {
-                replyMessage = "Yay! 🎉 I'm so excited! Let's plan the details!";
-            } else {
-                replyMessage = "No worries! 😊 Maybe another time.";
-            }
-            document.getElementById('reply').innerText = replyMessage;
-        }
-    </script>
-</body>
-</html>
 
